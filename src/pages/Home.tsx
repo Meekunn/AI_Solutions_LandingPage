@@ -1,12 +1,13 @@
-import { Heading } from "@chakra-ui/react";
-
+import { Heading, VStack } from "@chakra-ui/react";
+import Navbar from "../components/layout/Navbar";
 const Home = () => {
   return (
-    <div>
+    <VStack w="100vw" h="100vh">
+      <Navbar />
       <Heading as="h1" size="h1">
         Home
       </Heading>
-    </div>
+    </VStack>
   );
 };
 

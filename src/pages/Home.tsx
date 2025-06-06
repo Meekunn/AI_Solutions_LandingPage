@@ -1,12 +1,25 @@
-import { Heading, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import Navbar from "../components/layout/Navbar";
+import HeroSection from "@/components/sections/HeroSection";
+import ClientLogos from "@/components/sections/ClientLogos";
+import HeroBackground from "@/assets/bgImages/bg_image.png";
+import Awards from "@/components/sections/Awards";
+
 const Home = () => {
   return (
-    <VStack w="100vw" h="100vh">
-      <Navbar />
-      <Heading as="h1" size="h1">
-        Home
-      </Heading>
+    <VStack>
+      <VStack
+        w="100%"
+        h="fit-content"
+        backgroundImage={`url(${HeroBackground})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat">
+        <Navbar />
+        <HeroSection />
+        <ClientLogos />
+      </VStack>
+      <Awards />
     </VStack>
   );
 };

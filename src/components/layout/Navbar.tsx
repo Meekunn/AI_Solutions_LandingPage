@@ -2,17 +2,17 @@ import {
   Button,
   HStack,
   IconButton,
-  Image,
   Drawer,
   Portal,
   CloseButton,
   VStack,
 } from "@chakra-ui/react";
-import Logo from "@/assets/svg/logo.svg";
 import GradientBorderButton from "../reusables/GradientBorderButton";
 import NavLink from "../reusables/NavLink";
 import { RiMenu3Line } from "react-icons/ri";
 import { useRef, useState } from "react";
+import { LogoTextIcon } from "@/icons";
+import AnimatedBorderBtn from "../reusables/AnimatedBorderBtn";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -20,21 +20,38 @@ const Navbar = () => {
 
   return (
     <HStack
-      py={{ base: 6, xl: 8 }}
-      px={{ base: 4, md: 14, xl: 24 }}
+      py={8}
+      px={{ base: 14, xl: 24 }}
       justifyContent="space-between"
-      w="full">
-      <Image src={Logo} alt="Logo" />
-      <HStack gap={10} display={{ base: "none", lg: "flex" }}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">Features</NavLink>
-        <NavLink to="/about">Pricing</NavLink>
-        <NavLink to="/about">About Us</NavLink>
+      w="full"
+      // pos="fixed"
+      // zIndex={100}
+    >
+      <NavLink variant="navlink" to="/">
+        <LogoTextIcon />
+      </NavLink>
+      <HStack gap={10}>
+        <NavLink variant="navlink" to="/">
+          Home
+        </NavLink>
+        <NavLink variant="navlink" to="/about">
+          Features
+        </NavLink>
+        <NavLink variant="navlink" to="/about">
+          Pricing
+        </NavLink>
+        <NavLink variant="navlink" to="/about">
+          About Us
+        </NavLink>
       </HStack>
-      <HStack gap={{ base: 2, xl: 4 }} display={{ base: "none", lg: "flex" }}>
-        <Button variant="customGhost" fontSize="md">
+      <HStack
+        gap={{ base: 2, xl: 4 }}
+        // display={{ base: "none", lg: "flex" }}
+      >
+        {/* <Button variant="customGhost" fontSize="md">
           Log in
-        </Button>
+        </Button> */}
+        <AnimatedBorderBtn label="Log in" />
         <GradientBorderButton text="Get Started" />
       </HStack>
 
@@ -43,14 +60,17 @@ const Navbar = () => {
       <Drawer.Root
         open={open}
         onOpenChange={(e) => setOpen(e.open)}
-        initialFocusEl={() => ref.current}>
+        initialFocusEl={() => ref.current}
+      >
         <Drawer.Trigger asChild>
           <IconButton
             aria-label="Open Sidebar Menu"
             variant="ghost"
             color="white"
             size="lg"
-            display={{ base: "inline-flex", lg: "none" }}>
+            // display={{ base: "inline-flex", lg: "none" }}
+            display={"none"}
+          >
             <RiMenu3Line />
           </IconButton>
         </Drawer.Trigger>
@@ -59,20 +79,21 @@ const Navbar = () => {
           <Drawer.Positioner>
             <Drawer.Content
               boxShadow="-6px 0px 10px 3px rgba(255, 255, 255, 0.2)"
-              backdropFilter="blur(8px)">
+              backdropFilter="blur(8px)"
+            >
               <Drawer.Header></Drawer.Header>
               <Drawer.Body>
                 <VStack gap={10} align="start" pt={6}>
-                  <NavLink fontSize="lg" to="/">
+                  <NavLink variant="navlink" fontSize="lg" to="/">
                     Home
                   </NavLink>
-                  <NavLink fontSize="lg" to="/about">
+                  <NavLink variant="navlink" fontSize="lg" to="/about">
                     Features
                   </NavLink>
-                  <NavLink fontSize="lg" to="/about">
+                  <NavLink variant="navlink" fontSize="lg" to="/about">
                     Pricing
                   </NavLink>
-                  <NavLink fontSize="lg" to="/about">
+                  <NavLink variant="navlink" fontSize="lg" to="/about">
                     About Us
                   </NavLink>
                 </VStack>
@@ -85,7 +106,8 @@ const Navbar = () => {
                   w="full"
                   py={6}
                   color="white"
-                  borderColor="white">
+                  borderColor="white"
+                >
                   Log in
                 </Button>
                 <Button
@@ -93,7 +115,8 @@ const Navbar = () => {
                   w="full"
                   color="white"
                   fontSize="md"
-                  py={6}>
+                  py={6}
+                >
                   Get Started
                 </Button>
               </Drawer.Footer>

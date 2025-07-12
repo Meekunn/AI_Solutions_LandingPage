@@ -13,6 +13,7 @@ const config = defineConfig({
       fontFamily: "'Be Vietnam Pro', sans-serif",
       bgColor: "colors.primary.value",
       color: colors.textColor.value,
+      lineHeight: "170%",
     },
   },
   theme: {
@@ -29,8 +30,8 @@ const config = defineConfig({
       button: buttonRecipe,
       input: inputRecipe,
     },
-  }
-})
+  },
+});
 
 const system = createSystem(defaultConfig, config);
 export default system;

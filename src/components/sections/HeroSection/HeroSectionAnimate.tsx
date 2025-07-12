@@ -1,29 +1,22 @@
-import { Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
+import { Flex, Icon, Text, VStack } from "@chakra-ui/react";
 import "./hero-section.css";
 import { FiPlus } from "react-icons/fi";
 import { motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import "./hero-section.css";
 
 const MotionFlex = motion.create(Flex);
 const MotionText = motion.create(Text);
 
-const HeroSection = () => {
+const HeroSectionAnimate = () => {
   const ballRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const [animate, setAnimate] = useState(false);
+  const [isBallMoving, setIsBallMoving] = useState(false);
 
   const isInView = useInView(ballRef, { once: true });
-  const isTextInView = useInView(textRef, { once: true });
-
-  // useEffect(() => {
-  //   if (isInView) {
-  //     setAnimate(true);
-  //     setTimeout(() => setAnimate(false), 20000);
-  //   }
-  // }, [isInView]);
 
   return (
-    <VStack>
+    <VStack className="hero-container">
       <Flex
         as="div"
         align="center"
@@ -45,7 +38,8 @@ const HeroSection = () => {
           backgroundOrigin: "padding-box, border-box",
           backgroundClip: "padding-box, border-box",
           overflow: "hidden",
-        }}>
+        }}
+      >
         <MotionText
           ref={textRef}
           color="white"
@@ -54,10 +48,11 @@ const HeroSection = () => {
           whiteSpace="nowrap"
           initial={false}
           animate={{
-            opacity: isTextInView ? 0 : 1,
-            scale: isTextInView ? 0.95 : 1,
+            opacity: isBallMoving ? 0 : 1,
+            scale: isBallMoving ? 0.95 : 1,
             transition: { duration: 0.3 },
-          }}>
+          }}
+        >
           Start Your Journey with InnovaAI
         </MotionText>
 
@@ -75,38 +70,25 @@ const HeroSection = () => {
               type: "tween",
               duration: 2.4,
               ease: "easeInOut",
-              repeat: 5,
-              repeatType: "loop",
-              repeatDelay: 5,
+              repeat: 1,
+              // repeatType: "loop",
+              // repeatDelay: 5,
             },
           }}
+          onAnimationStart={() => setIsBallMoving(true)}
+          onAnimationComplete={() => setIsBallMoving(false)}
           w={6}
           h={6}
           borderRadius="full"
           align="center"
           justify="center"
-          bgGradient="linear-gradient(135deg, #DCC0DC 3.75%, #F8A8F9 26.75%, #7A86FA 66.75%, #024EEA 97.25%)">
+          bgGradient="linear-gradient(135deg, #DCC0DC 3.75%, #F8A8F9 26.75%, #7A86FA 66.75%, #024EEA 97.25%)"
+        >
           <Icon as={FiPlus} w={3} h={3} color="white" />
         </MotionFlex>
-      </Flex>
-      <div className="container">
-        <Text ml={2}>Start Your Journey with InnovaAI</Text>
-        <Flex
-          ml={2} // 8px gap
-          w={6} // 24px
-          h={6} // 24px
-          borderRadius="full" // circle
-          align="center"
-          justify="center"
-          backgroundImage="linear-gradient(135deg, #DCC0DC 3.75%, #F8A8F9 26.75%, #7A86FA 66.75%, #024EEA 97.25%)">
-          <Icon as={FiPlus} w={3} h={3} color="white" fontWeight="bold" />
-        </Flex>
-      </div>
-      <Flex>
-        <Heading>Testing</Heading>
       </Flex>
     </VStack>
   );
 };
 
-export default HeroSection;
+export default HeroSectionAnimate;

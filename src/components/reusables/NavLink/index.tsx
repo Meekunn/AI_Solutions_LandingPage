@@ -5,15 +5,30 @@ import type { LinkProps } from "@chakra-ui/react";
 interface INavLink extends LinkProps {
   to: string;
   children: React.ReactNode;
+  variant?:
+    | "underline"
+    | "plain"
+    | "navlink"
+    | "activeNavlink"
+    | "footerNavlink"
+    | "activeFooterNavlink";
 }
 
-const NavLink = ({ to, children, ...chakraProps }: INavLink) => {
+const NavLink = ({ to, variant, children, ...chakraProps }: INavLink) => {
   const location = useLocation();
   const isActive = location.pathname === to;
-  const variant = isActive ? "activeNavlink" : "navlink";
+  let selectedVariant: INavLink["variant"];
+  if (variant) {
+    if (variant == "navlink") {
+      selectedVariant = isActive ? "activeNavlink" : "navlink";
+    } else if (variant == "footerNavlink") {
+      selectedVariant = isActive ? "activeFooterNavlink" : "footerNavlink";
+    }
+  }
+  // const variant = isActive ? "activeNavlink" : "navlink";
 
   return (
-    <ChakraLink asChild variant={variant} {...chakraProps}>
+    <ChakraLink asChild variant={selectedVariant} {...chakraProps}>
       <ReactRouterLink to={to}>{children}</ReactRouterLink>
     </ChakraLink>
   );

@@ -8,7 +8,13 @@
   border: none;
   outline: none;
   border-radius: 100px;
-  background: linear-gradient(90deg, #dcc0dc, #f8a8f9, #7a86fa, #024eea);
+  background: linear-gradient(
+    135deg,
+    #dcc0dc 3.75%,
+    #f8a8f9 26.75%,
+    #7a86fa 66.75%,
+    #024eea 97.25%
+  );
   cursor: pointer;
   z-index: 0;
   transition: all 0.3s ease-in-out;
@@ -21,7 +27,7 @@
   right: 1.5px;
   bottom: 1.5px;
   left: 1.5px;
-  background: rgba(33, 33, 43, 0.95); /* your actual background */
+  background: rgba(33, 33, 43, 0.95);
   box-shadow:
     0px 32px 24px -16px rgba(0, 0, 0, 0.4),
     inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25);

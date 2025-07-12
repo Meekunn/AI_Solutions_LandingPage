@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# InnovaAI – Landing Page ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pixel-perfect React/TypeScript landing page that **accurately** recreates the InnovaAI Figma mock-up, with meticulous attention to layout details and silky-smooth micro-animations powered by the AOS library.
 
-Currently, two official plugins are available:
+<img width="1854" height="1084" alt="InnovaAI Screenshot" src="https://github.com/user-attachments/assets/bcfcf9d8-eeb7-4f3d-950a-b5ce4258382c" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔗 Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<https://ai-solutions-landing-page.vercel.app/>
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🎨 Original Figma
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<https://www.figma.com/design/tPitkSaCjsDiEcMob5Zfp4/Landing-Page-Collection-v2.0?node-id=0-1&p=f&t=PFEhY2YIFCWMNFrV-0>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 🚀 Features
+
+| Category              | Highlights                                                                                                                             |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Design Fidelity**   | 1:1 recreation of the provided Figma frames, including spacing, typography, and color palette.                                         |
+| **Responsive Layout** | Fluid grid and flex utilities ensure a great experience on mobile, tablet, and desktop.                                                |
+| **Animations**        | Scroll-triggered effects via [AOS](https://michalsnik.github.io/aos) for subtle motion that draws attention without distracting users. |
+| **Component-Driven**  | Built with Chakra UI’s accessible, theme-able components for rapid iteration.                                                          |
+| **Blazing Build**     | Powered by [Vite](https://vitejs.dev/) for lightning-fast dev server and optimized production bundles.                                 |
+
+---
+
+## 🛠 Tech Stack
+
+- **React 18** + **TypeScript**
+
+- **Chakra UI 3** (CSS-in-JS)
+- **AOS** (Animate On Scroll)
+- **Vite** build tool
+- ESLint & Prettier configured
+
+---
+
+## 📦 Getting Started
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Meekunn/AI_Solutions_LandingPage.git
+cd AI_Solutions_LandingPage
+
+# 2. Install dependencies
+npm install   # or pnpm install / yarn
+
+# 3. Run the dev server
+npm run dev
 ```

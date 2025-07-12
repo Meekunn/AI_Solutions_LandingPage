@@ -2,7 +2,7 @@
 
 Pixel-perfect React/TypeScript landing page that **accurately** recreates the InnovaAI Figma mock-up, with meticulous attention to layout details and silky-smooth micro-animations powered by the AOS library.
 
-![InnovaAI screenshot](image.png)
+<img width="1854" height="1084" alt="InnovaAI Screenshot" src="https://github.com/user-attachments/assets/bcfcf9d8-eeb7-4f3d-950a-b5ce4258382c" />
 
 ---
 
@@ -31,7 +31,8 @@ Pixel-perfect React/TypeScript landing page that **accurately** recreates the In
 ## 🛠 Tech Stack
 
 - **React 18** + **TypeScript**
-- **Chakra UI 2** (CSS-in-JS)
+
+- **Chakra UI 3** (CSS-in-JS)
 - **AOS** (Animate On Scroll)
 - **Vite** build tool
 - ESLint & Prettier configured
